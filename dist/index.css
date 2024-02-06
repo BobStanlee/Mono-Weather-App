@@ -29,6 +29,12 @@ body {
     font-size: 4rem;
 }
 
+@media screen and (max-width: 628px) {
+    .splash-container h1 {
+        font-size: 2rem;
+    }
+}
+
 @keyframes slide-in {
     0% {
       transform: translateX(-100%);
@@ -42,4 +48,4 @@ body {
         transform: translateX(100%);
         opacity: 0;
     }
-  }
+}
