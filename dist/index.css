@@ -1,0 +1,45 @@
+:root {
+    --White: #FFF;
+    --black: #000;
+    --translucent: #616161;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.splash-container {
+    width: 100vw;
+    height: 100vh;
+    background: var(--White);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slide-in 5s ease-in-out;
+}
+
+.splash-container h1 {
+    font-size: 4rem;
+}
+
+@keyframes slide-in {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+  }
