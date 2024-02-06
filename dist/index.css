@@ -23,6 +23,7 @@ body {
     align-items: center;
     justify-content: center;
     animation: slide-in 5s ease-in-out;
+    transition: all 0.3s ease-in-out 0s;
 }
 
 .splash-container h1 {
