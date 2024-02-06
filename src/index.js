@@ -1,3 +1,4 @@
 import splashContent from "./splash";
 
-splashContent();
+// Run the function on page load
+window.addEventListener('load', splashContent);
