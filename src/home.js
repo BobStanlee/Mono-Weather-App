@@ -1,9 +1,9 @@
-import getCurrentWeatherData from "./currentweather";
+import getForecastWeatherData from "./forecastweather";
 
-function updateHomeContent(city) {
-    let currentweatherDataPromise = getCurrentWeatherData();
+async function updateHomeContent(city='sunyani') {
+    let resolvedDatas = getForecastWeatherData(city);
 
-    currentweatherDataPromise.then((resolvedData) => {
+    resolvedDatas.then((resolvedData) => {
         console.log(resolvedData);
 
         let date = formatLastUpdated(resolvedData.current.last_updated);
@@ -31,17 +31,17 @@ function updateHomeContent(city) {
         <div class="date-N-temperature">
           <p class="date">${date}</p>
   
-          <h1 class="temp">${resolvedData.current.temp_c}<span>°C</span></h1>
+          <h1 class="temp">${Math.round(resolvedData.current.temp_c)}<span>°C</span></h1>
   
           <div class="temps">
             <span class="low-temp">
               <img src="../src/img/Down Arrow.png" alt="Down Arrow">
-              ${resolvedData.current.temp_c - 6}°C
+              ${Math.round(resolvedData.current.temp_c) - 6}°C
             </span>
   
             <span class="high-temp">
               <img src="../src/img/Up Arrow.png" alt="Down Arrow">
-              ${resolvedData.current.temp_c + 4}°C
+              ${Math.round(resolvedData.current.temp_c) + 4}°C
             </span>
           </div>
         </div>
@@ -54,12 +54,12 @@ function updateHomeContent(city) {
         <div class="sunrise-sunset-container">
           <div class="sunrise-item">
             <img src="../src/img/sunrise.png" alt="Sunrise icon">
-            <span class="time">09:18 AM</span>
+            <span class="time">${resolvedData.forecast.forecastday[0].astro.sunrise}</span>
           </div>
   
           <div class="sunset-item">
             <img src="../src/img/sunset.png" alt="Sunset icon">
-            <span class="time">09:18 AM</span>
+            <span class="time">${resolvedData.forecast.forecastday[0].astro.sunset}</span>
           </div>
         </div>
       </div>`;
