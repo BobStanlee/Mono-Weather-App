@@ -4,11 +4,8 @@ let forecastDataPromise = getForecastWeatherData();
 
 async function updateDetails() {
     forecastDataPromise.then((resolvedData) => {
-        console.log(resolvedData);
 
         let infoContainer = document.querySelector('.info-container');
-
-        console.log(infoContainer);
 
         let detailContent = `
                 <div class="details">

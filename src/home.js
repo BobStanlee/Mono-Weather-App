@@ -1,5 +1,5 @@
 import getForecastWeatherData from "./forecastweather";
-import updateDetails from "./details";
+import switchtabs from "./switchtab";
 
 async function updateHomeContent() {
     let resolvedDatas = getForecastWeatherData();
@@ -78,6 +78,8 @@ async function updateHomeContent() {
         if (!document.querySelector('body div.splash-container')) {
             document.body.innerHTML = homeContent;
         }
+
+        switchtabs();
     })
 }
 
