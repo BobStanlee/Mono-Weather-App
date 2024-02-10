@@ -1,5 +1,6 @@
 import updateDetails from "./details";
 import updateHomeContent from "./home";
+import updateForecast from "./forecast";
 
 function switchtabs() {
     let btns = document.querySelectorAll(".sync span");
@@ -16,7 +17,7 @@ function switchtabs() {
           btn.classList.contains("forecast") &
           !infoContainer.querySelector(".forecast")
         ) {
-          updateForecast();
+            updateForecast();
         } else if (
           btn.classList.contains("home") &&
           !infoContainer.querySelector(".home")
