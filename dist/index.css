@@ -171,3 +171,27 @@ body {
     font-size: var(--small-font);
     color: var(--translucent);
 }
+
+.sunrise-sunset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.sunrise-sunset-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sunrise-sunset-container div img {
+    width: 60px;
+}
+
+.sunrise-sunset-container div span {
+    font-size: var(--small-font);
+    font-weight: 600;
+    color: var(--translucent);
+}
