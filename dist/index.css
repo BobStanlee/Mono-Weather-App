@@ -233,10 +233,13 @@ body {
 }
 
 /* Apply the fade-out animation when the hide class is added to the home-container */
-.home-container.hide .sunrise-sunset-container,
-.home-container.hide .weather-image-item,
-.home-container.hide .header-info,
-.home-container.hide .sync,
-.home-container.hide .date-N-temperature {
+.info-container.hide .sunrise-sunset-container,
+.info-container.hide .weather-image-item,
+.info-container.hide .header-info,
+.info-container.hide .sync,
+.info-container.hide .date-N-temperature {
   animation: fadeOut 2s ease-in-out forwards; /* 2 seconds duration, ease-in-out timing function, forwards to retain the final state */
 }
+
+/* DETAILS STYLES */
+

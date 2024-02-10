@@ -8,7 +8,8 @@ async function updateHomeContent(city='sunyani') {
 
         let date = formatLastUpdated(resolvedData.current.last_updated);
 
-        let homeContent = `<div class="home-container">
+        let homeContent = `
+        <div class="home-container">
         <div class="header-info"><!--Header info-->
           <div class="loc-item">
             <span class="location">${resolvedData.location.name}</span>
@@ -25,43 +26,44 @@ async function updateHomeContent(city='sunyani') {
             </a>
           </div>
         </div>
-  
-        <p class="sync">in sync</p>
-  
-        <div class="date-N-temperature">
-          <p class="date">${date}</p>
-  
-          <h1 class="temp">${Math.round(resolvedData.current.temp_c)}<span>°C</span></h1>
-  
-          <div class="temps">
-            <span class="low-temp">
-              <img src="../src/img/Down Arrow.png" alt="Down Arrow">
-              ${Math.round(resolvedData.current.temp_c) - 6}°C
-            </span>
-  
-            <span class="high-temp">
-              <img src="../src/img/Up Arrow.png" alt="Down Arrow">
-              ${Math.round(resolvedData.current.temp_c) + 4}°C
-            </span>
+        <div class="info-container">
+          <p class="sync">in sync</p>
+    
+          <div class="date-N-temperature">
+            <p class="date">${date}</p>
+    
+            <h1 class="temp">${Math.round(resolvedData.current.temp_c)}<span>°C</span></h1>
+    
+            <div class="temps">
+              <span class="low-temp">
+                <img src="../src/img/Down Arrow.png" alt="Down Arrow">
+                ${Math.round(resolvedData.current.temp_c) - 6}°C
+              </span>
+    
+              <span class="high-temp">
+                <img src="../src/img/Up Arrow.png" alt="Down Arrow">
+                ${Math.round(resolvedData.current.temp_c) + 4}°C
+              </span>
+            </div>
           </div>
-        </div>
-  
-        <div class="weather-image-item">
-          <img src=${resolvedData.current.condition.icon} alt="weather-image" class="weather-image">
-          <span class="weather-des">${resolvedData.current.condition.text}</span>
-        </div>
-  
-        <div class="sunrise-sunset-container">
-          <div class="sunrise-item">
-            <img src="../src/img/sunrise.png" alt="Sunrise icon">
-            <span class="time">${resolvedData.forecast.forecastday[0].astro.sunrise}</span>
+    
+          <div class="weather-image-item">
+            <img src=${resolvedData.current.condition.icon} alt="weather-image" class="weather-image">
+            <span class="weather-des">${resolvedData.current.condition.text}</span>
           </div>
-  
-          <div class="sunset-item">
-            <img src="../src/img/sunset.png" alt="Sunset icon">
-            <span class="time">${resolvedData.forecast.forecastday[0].astro.sunset}</span>
+    
+          <div class="sunrise-sunset-container">
+            <div class="sunrise-item">
+              <img src="../src/img/sunrise.png" alt="Sunrise icon">
+              <span class="time">${resolvedData.forecast.forecastday[0].astro.sunrise}</span>
+            </div>
+    
+            <div class="sunset-item">
+              <img src="../src/img/sunset.png" alt="Sunset icon">
+              <span class="time">${resolvedData.forecast.forecastday[0].astro.sunset}</span>
+            </div>
           </div>
-        </div>
+          </div>
       </div>`;
 
 
