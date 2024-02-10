@@ -9,6 +9,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="home-container">
+      <div class="header-info"><!--Header info-->
+        <div class="loc-item">
+          <span class="location">Sunyani</span>
+          <p>Current Location</p>
+        </div>
+
+        <div class="set-item">
+          <a href="#" id="location-icon">
+            <img src="../src/img/Locations.png" alt="Location Icon">
+          </a>
+
+          <a href="#" id="settings-icon">
+            <img src="../src/img/settings.png" alt="Settings Icon">
+          </a>
+        </div>
+      </div>
+
+      <div class="sync">
+          <span class="home">Home</span>
+          <span class="details">Details</span>
+          <span class="forecast">Forecast</span>
+      </div>
+
+      <div class="info-container">
+        <div class="forecast">
+          <h2>Forecast</h2>
+          <div class="hourly-forecast">
+            <h3>Hourly Forecast</h3>
+            <div class="hourly-container">
+              <div class="hour-item">
+                <span class="time">10:00</span>
+                <img src="../src/img/Drizzle.png" alt="" class="weather-img">
+              </div>
+  
+              <div class="hour-item">
+                <span class="time">10:00</span>
+                <img src="../src/img/Drizzle.png" alt="" class="weather-img">
+              </div>
+            </div>
+          </div>
+
+          <div class="daily-forecast">
+            <h3>Daily Forecast</h3>
+            <div class="daily-container">
+              <div class="daily-item">
+                <span class="date">26 Dec</span>
+                <img src="../src/img/Drizzle.png" alt="weather-img" class="weather-img">
+                <span class="high-temp">
+                  <img src="../src/img/Up Arrow.png" alt="Up Arrow">
+                  26°C
+                </span>
+  
+                <span class="low-temp">
+                  <img src="../src/img/Down Arrow.png" alt="Down Arrow">
+                  16°C
+                </span>
+              </div>
+  
+              <div class="daily-item">
+                <span class="date">26 Dec</span>
+                <img src="../src/img/Drizzle.png" alt="weather-img" class="weather-img">
+                <span class="high-temp">
+                  <img src="../src/img/Up Arrow.png" alt="Up Arrow">
+                  26°C
+                </span>
+  
+                <span class="low-temp">
+                  <img src="../src/img/Down Arrow.png" alt="Down Arrow">
+                  16°C
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
