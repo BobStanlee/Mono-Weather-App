@@ -1,7 +1,7 @@
 import getForecastWeatherData from "./forecastweather";
 
-async function updateHomeContent(city='sunyani') {
-    let resolvedDatas = getForecastWeatherData(city);
+async function updateHomeContent() {
+    let resolvedDatas = getForecastWeatherData();
 
     resolvedDatas.then((resolvedData) => {
         console.log(resolvedData);

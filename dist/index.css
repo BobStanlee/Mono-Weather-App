@@ -266,3 +266,14 @@ body {
 .details div .value {
     font-size: var(--medium-font);
 }
+
+/* ANIMATION */
+.details,
+.details h2,
+.details div {
+    animation: translateYAndFadeIn 2s ease-in-out;
+}
+
+.details.hide {
+    animation: fadeOut 2s ease-in-out forwards;
+}
