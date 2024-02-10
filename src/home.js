@@ -73,4 +73,23 @@ function updateHomeContent(city) {
     })
 }
 
+function formatLastUpdated(lastUpdatedString) {
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  // Convert the string to a Date object
+  const lastUpdatedDate = new Date(lastUpdatedString);
+
+  // Extract the day, date, month, and year
+  const dayOfWeek = daysOfWeek[lastUpdatedDate.getDay()];
+  const date = lastUpdatedDate.getDate();
+  const month = months[lastUpdatedDate.getMonth()];
+  const year = lastUpdatedDate.getFullYear();
+
+  // Format the result
+  const formattedDate = `${dayOfWeek}, ${date} ${month} ${year}`;
+  
+  return formattedDate;
+}
+
 export default updateHomeContent;
