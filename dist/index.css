@@ -243,3 +243,26 @@ body {
 
 /* DETAILS STYLES */
 
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.details h2 {
+    font-size: var(--medium-font);
+}
+
+.details div {
+    display: grid;
+    gap: 10px;
+}
+
+.details div .des {
+    font-size: var(--small-font);
+    color: var(--translucent);
+}
+
+.details div .value {
+    font-size: var(--medium-font);
+}
