@@ -2,6 +2,8 @@
     --White: #FFF;
     --black: #000;
     --translucent: #616161;
+    --medium-font: 64px;
+    --small-font: 34px;
 }
 
 * {
@@ -12,6 +14,11 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .splash-container {
@@ -50,3 +57,101 @@ body {
         opacity: 0;
     }
 }
+
+
+/* HOME STYLE */
+.home-container {
+    padding: 70px 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.header-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15%;
+}
+
+.loc-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.loc-item .location {
+    font-size: var(--medium-font);
+    font-weight: 600;
+}
+
+.loc-item p {
+    font-size: var(--small-font);
+    color: var(--translucent);
+}
+
+.set-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.set-item a img {
+    width: 60px;
+    height: auto;
+}
+
+.sync {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--translucent);
+    font-size: var(--small-font);
+    margin-bottom: 8%;
+}
+
+.date-N-temperature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    margin-bottom: 10%;
+}
+
+.date-N-temperature .date {
+    color: var(--translucent);
+    font-size: var(--medium-font);
+    font-weight: 600;
+}
+
+.date-N-temperature .temp {
+    font-size: 360px;
+    font-weight: 400;
+}
+
+.date-N-temperature .temp span {
+    font-size: 128px;
+    font-weight: 200;
+}
+
+.date-N-temperature .temps {
+    display: flex;
+    gap: 80px;
+}
+
+.date-N-temperature .temps span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--small-font);
+    color: var(--translucent);
+}
+
+.date-N-temperature .temps span img {
+    width: 60px;
+}
+

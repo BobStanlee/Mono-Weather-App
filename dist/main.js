@@ -1,1 +1,0 @@
-(()=>{"use strict";window.addEventListener("load",(function(){document.body.innerHTML='<div class="splash-container">\n                        <h1 class="title">\n                        Mono Weather\n                        </h1>\n                    </div>',setTimeout((()=>{document.body.innerHTML="",console.log("The function has been removed after 5 seconds")}),5e3)}))})();
