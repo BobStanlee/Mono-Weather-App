@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/currentweather.js":
@@ -15,7 +16,6 @@
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst apiKey = 'f89648074bac4104939211917240602';\r\nconst currentApiURL = 'http://api.weatherapi.com/v1/current.json?';\r\n\r\nasync function getCurrentWeatherData(city = 'sunyani') {\r\n    try {\r\n      const responds = await fetch(\r\n        `${currentApiURL}` + `key=${apiKey}` + `&q=${city}`\r\n      );\r\n  \r\n      if (!responds.ok) {\r\n        // If the response status is not ok, throw an error\r\n        throw new Error(`Failed to fetch data. Status: ${responds.status}`);\r\n      }\r\n  \r\n      const data = await responds.json();\r\n      return data;\r\n    } catch (error) {\r\n      // Handle the error here\r\n      console.error('Error fetching weather data:', error.message);\r\n      throw error; // Optionally rethrow the error to propagate it to the caller\r\n    }\r\n  }\r\n  \r\n  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCurrentWeatherData);\r\n  \n\n//# sourceURL=webpack://mono-weather-app/./src/currentweather.js?");
 
 /***/ }),
@@ -24,9 +24,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!*********************!*\
   !*** ./src/home.js ***!
   \*********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\n\n//# sourceURL=webpack://mono-weather-app/./src/home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _currentweather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./currentweather */ \"./src/currentweather.js\");\n\r\n\r\nfunction updateHomeContent(city) {\r\n    let currentweatherDataPromise = (0,_currentweather__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n\r\n    currentweatherDataPromise.then((resolvedData) => {\r\n        console.log(resolvedData);\r\n\r\n        let date = formatLastUpdated(resolvedData.current.last_updated);\r\n\r\n        let homeContent = `<div class=\"home-container\">\r\n        <div class=\"header-info\"><!--Header info-->\r\n          <div class=\"loc-item\">\r\n            <span class=\"location\">${resolvedData.location.name}</span>\r\n            <p>Current Location</p>\r\n          </div>\r\n  \r\n          <div class=\"set-item\">\r\n            <a href=\"#\" id=\"location-icon\">\r\n              <img src=\"../src/img/Locations.png\" alt=\"Location Icon\">\r\n            </a>\r\n  \r\n            <a href=\"#\" id=\"settings-icon\">\r\n              <img src=\"../src/img/settings.png\" alt=\"Settings Icon\">\r\n            </a>\r\n          </div>\r\n        </div>\r\n  \r\n        <p class=\"sync\">in sync</p>\r\n  \r\n        <div class=\"date-N-temperature\">\r\n          <p class=\"date\">${date}</p>\r\n  \r\n          <h1 class=\"temp\">${resolvedData.current.temp_c}<span>°C</span></h1>\r\n  \r\n          <div class=\"temps\">\r\n            <span class=\"low-temp\">\r\n              <img src=\"../src/img/Down Arrow.png\" alt=\"Down Arrow\">\r\n              ${resolvedData.current.temp_c - 6}°C\r\n            </span>\r\n  \r\n            <span class=\"high-temp\">\r\n              <img src=\"../src/img/Up Arrow.png\" alt=\"Down Arrow\">\r\n              ${resolvedData.current.temp_c + 4}°C\r\n            </span>\r\n          </div>\r\n        </div>\r\n  \r\n        <div class=\"weather-image-item\">\r\n          <img src=${resolvedData.current.condition.icon} alt=\"weather-image\" class=\"weather-image\">\r\n          <span class=\"weather-des\">${resolvedData.current.condition.text}</span>\r\n        </div>\r\n  \r\n        <div class=\"sunrise-sunset-container\">\r\n          <div class=\"sunrise-item\">\r\n            <img src=\"../src/img/sunrise.png\" alt=\"Sunrise icon\">\r\n            <span class=\"time\">09:18 AM</span>\r\n          </div>\r\n  \r\n          <div class=\"sunset-item\">\r\n            <img src=\"../src/img/sunset.png\" alt=\"Sunset icon\">\r\n            <span class=\"time\">09:18 AM</span>\r\n          </div>\r\n        </div>\r\n      </div>`;\r\n\r\n\r\n        // Check if body does not contain div.splash-container\r\n        if (!document.querySelector('body div.splash-container')) {\r\n            document.body.innerHTML = homeContent;\r\n            console.log(date);\r\n        }\r\n    })\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateHomeContent);\n\n//# sourceURL=webpack://mono-weather-app/./src/home.js?");
 
 /***/ }),
 
@@ -36,8 +36,7 @@ eval("\n\n//# sourceURL=webpack://mono-weather-app/./src/home.js?");
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _splash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./splash */ \"./src/splash.js\");\n/* harmony import */ var _currentweather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./currentweather */ \"./src/currentweather.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_home__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\r\n// Run the function on page load\r\nwindow.addEventListener('load', _splash__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\r\n\r\n// Run the update home content after the splash content has finish doing its thing\r\n// setTimeout(() => {\r\n//     updateHomeContent();\r\n// }, 5000)\r\n\n\n//# sourceURL=webpack://mono-weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _splash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./splash */ \"./src/splash.js\");\n/* harmony import */ var _currentweather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./currentweather */ \"./src/currentweather.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n\r\n\r\n\r\n\r\n// Run the function on page load\r\nwindow.addEventListener('load', _splash__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\r\n\r\n// Run the update home content after the splash content has finish doing its thing\r\n// setTimeout(() => {\r\n//     updateHomeContent();\r\n// }, 5000)\r\n\n\n//# sourceURL=webpack://mono-weather-app/./src/index.js?");
 
 /***/ }),
 
@@ -47,7 +46,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _spl
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst splashContent = function() {\r\n    let content = `<div class=\"splash-container\">\r\n                        <h1 class=\"title\">\r\n                        Mono Weather\r\n                        </h1>\r\n                    </div>`\r\n\r\n    document.body.innerHTML = content;\r\n\r\n    setTimeout(() => {\r\n        // Remove the function from the load event\r\n        document.body.innerHTML = '';\r\n        console.log('The function has been removed after 5 seconds');\r\n      }, 5000);\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (splashContent);\n\n//# sourceURL=webpack://mono-weather-app/./src/splash.js?");
 
 /***/ })
@@ -79,18 +77,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
