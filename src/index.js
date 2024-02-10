@@ -6,6 +6,6 @@ import updateHomeContent from "./home";
 window.addEventListener('load', splashContent);
 
 // Run the update home content after the splash content has finish doing its thing
-// setTimeout(() => {
-//     updateHomeContent();
-// }, 5000)
+setTimeout(() => {
+    updateHomeContent();
+}, 5000)
