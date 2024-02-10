@@ -8,6 +8,8 @@ async function updateDetails() {
 
         let infoContainer = document.querySelector('.info-container');
 
+        console.log(infoContainer);
+
         let detailContent = `
                 <div class="details">
                 <h2>Details</h2>
@@ -44,8 +46,23 @@ async function updateDetails() {
             </div>
       `;
 
+        infoContainer.innerHTML = '';
         infoContainer.innerHTML = detailContent;
     })
+}
+
+function classifyUVIndex(uvIndex) {
+    if (uvIndex >= 0 && uvIndex <= 2) {
+        return "Low risk";
+    } else if (uvIndex <= 5) {
+        return "Moderate risk";
+    } else if (uvIndex <= 7) {
+        return "High risk";
+    } else if (uvIndex <= 10) {
+        return "Very high risk";
+    } else {
+        return "Extreme risk";
+    }
 }
 
 export default updateDetails;

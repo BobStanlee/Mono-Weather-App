@@ -10,7 +10,6 @@ const splashContent = function() {
     setTimeout(() => {
         // Remove the function from the load event
         document.body.innerHTML = '';
-        console.log('The function has been removed after 5 seconds');
       }, 5000);
 }
 

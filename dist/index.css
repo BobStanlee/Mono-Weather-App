@@ -74,7 +74,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15%;
+    margin-bottom: 8%;
 }
 
 .loc-item {
@@ -107,10 +107,23 @@ body {
 .sync {
     display: flex;
     align-items: center;
+    gap: 40px;
     justify-content: center;
     color: var(--translucent);
     font-size: var(--small-font);
     margin-bottom: 8%;
+}
+
+.sync span {
+    border: 2px var(--translucent) solid;
+    padding: 15px 10px;
+    transition: all.3s ease-in-out 0;
+    cursor: pointer;
+}
+
+.sync span:hover {
+    background: var(--translucent);
+    color: var(--White);
 }
 
 .date-N-temperature {

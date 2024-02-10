@@ -1,10 +1,10 @@
 import getForecastWeatherData from "./forecastweather";
+import updateDetails from "./details";
 
 async function updateHomeContent() {
     let resolvedDatas = getForecastWeatherData();
 
     resolvedDatas.then((resolvedData) => {
-        console.log(resolvedData);
 
         let date = formatLastUpdated(resolvedData.current.last_updated);
 
@@ -26,9 +26,15 @@ async function updateHomeContent() {
             </a>
           </div>
         </div>
+
+        <div class="sync">
+            <span class="home">Home</span>
+            <span class="details">Details</span>
+            <span class="forecast">Forecast</span>
+        </div>
+
         <div class="info-container">
-          <p class="sync">in sync</p>
-    
+          <div class="home">
           <div class="date-N-temperature">
             <p class="date">${date}</p>
     
@@ -64,13 +70,13 @@ async function updateHomeContent() {
             </div>
           </div>
           </div>
+          </div>
       </div>`;
 
 
         // Check if body does not contain div.splash-container
         if (!document.querySelector('body div.splash-container')) {
             document.body.innerHTML = homeContent;
-            console.log(date);
         }
     })
 }
