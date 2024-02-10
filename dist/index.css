@@ -195,3 +195,48 @@ body {
     font-weight: 600;
     color: var(--translucent);
 }
+
+/* hide */
+.hide {
+    z-index: -10;
+}
+
+/* translateY animation */
+@keyframes translateYAndFadeIn {
+    0% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+
+/* Keyframes for the fade-out animation */
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+/* Apply the animation to the specified classes */
+.sunrise-sunset-container,
+.weather-image-item,
+.header-info .loc-item,
+.sync,
+.date-N-temperature {
+  animation: translateYAndFadeIn 2s ease-in-out; /* 5 seconds duration, ease-in-out timing function */
+}
+
+/* Apply the fade-out animation when the hide class is added to the home-container */
+.home-container.hide .sunrise-sunset-container,
+.home-container.hide .weather-image-item,
+.home-container.hide .header-info,
+.home-container.hide .sync,
+.home-container.hide .date-N-temperature {
+  animation: fadeOut 2s ease-in-out forwards; /* 2 seconds duration, ease-in-out timing function, forwards to retain the final state */
+}
