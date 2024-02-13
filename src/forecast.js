@@ -23,13 +23,11 @@ async function updateForecast() {
 }
 
 function createForecast() {
-    const homeContainer = document.querySelector('.home-container');
-    const infoContainer = document.createElement('div');
+    const infoContainer = document.querySelector('.info-container');
     const forecastContainer = document.createElement('div');
     const h2 = document.createElement('h2');
 
     h2.textContent = 'Forecast';
-    infoContainer.classList.add('.info-container');
     forecastContainer.classList.add('forecast');
 
     const hourlyDiv = document.createElement('div');
@@ -62,9 +60,7 @@ function createForecast() {
     forecastContainer.appendChild(hourlyDiv);
     forecastContainer.appendChild(dailyDiv);
 
-    infoContainer.innerHTML = '';
     infoContainer.appendChild(forecastContainer);
-    homeContainer.appendChild(infoContainer);
 }
 
 
@@ -82,8 +78,6 @@ function createHourItem(hourlyForcast, hourlyContainer) {
 
     hourItem.appendChild(timeSpan);
     hourItem.appendChild(weatherImg);
-
-    console.log('Hello');
 
     hourlyContainer.appendChild(hourItem);
 }
