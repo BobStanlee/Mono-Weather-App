@@ -319,6 +319,7 @@ body {
     display: flex;
     align-items: center;
     gap: 80px;
+    overflow: scroll;
 }
 
 .forecast .hourly-forecast .hourly-container .hour-item,
@@ -327,6 +328,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     gap: 20px;
 }
 

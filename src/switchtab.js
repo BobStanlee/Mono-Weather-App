@@ -17,6 +17,7 @@ function switchtabs() {
           btn.classList.contains("forecast") &
           !infoContainer.querySelector(".forecast")
         ) {
+            infoContainer.innerHTML = '';
             updateForecast();
         } else if (
           btn.classList.contains("home") &&
