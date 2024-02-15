@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/currentweather.js":
+/*!*******************************!*\
+  !*** ./src/currentweather.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst apiKey = 'f89648074bac4104939211917240602';\r\nconst currentApiURL = 'http://api.weatherapi.com/v1/current.json?';\r\n\r\nasync function getCurrentWeatherData(city = 'sunyani') {\r\n    try {\r\n      const responds = await fetch(\r\n        `${currentApiURL}` + `key=${apiKey}` + `&q=${city}`\r\n      );\r\n  \r\n      if (!responds.ok) {\r\n        // If the response status is not ok, throw an error\r\n        throw new Error(`Failed to fetch data. Status: ${responds.status}`);\r\n      }\r\n  \r\n      const data = await responds.json();\r\n      return data;\r\n    } catch (error) {\r\n      // Handle the error here\r\n      console.error('Error fetching weather data:', error.message);\r\n      throw error; // Optionally rethrow the error to propagate it to the caller\r\n    }\r\n  }\r\n  \r\n  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCurrentWeatherData);\r\n  \n\n//# sourceURL=webpack://mono-weather-app/./src/currentweather.js?");
+
+/***/ }),
+
 /***/ "./src/details.js":
 /*!************************!*\
   !*** ./src/details.js ***!
@@ -56,7 +66,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _splash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./splash */ \"./src/splash.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n\r\n\r\n\r\n// Run the function on page load\r\n// window.addEventListener('load', splashContent);\r\n\r\n// Run the update home content after the splash content has finish doing its thing\r\n// setTimeout(() => {\r\n//     updateHomeContent();\r\n// }, 5200);\n\n//# sourceURL=webpack://mono-weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _splash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./splash */ \"./src/splash.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n/* harmony import */ var _location__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./location */ \"./src/location.js\");\n\r\n\r\n\r\n\r\n// Run the function on page load\r\n// window.addEventListener('load', splashContent);\r\n\r\n// Run the update home content after the splash content has finish doing its thing\r\n// setTimeout(() => {\r\n//     updateHomeContent();\r\n// }, 5200);\r\n\r\n(0,_location__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n\n//# sourceURL=webpack://mono-weather-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/location.js":
+/*!*************************!*\
+  !*** ./src/location.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _currentweather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./currentweather */ \"./src/currentweather.js\");\n/* harmony import */ var _forecastweather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./forecastweather */ \"./src/forecastweather.js\");\n\r\n\r\n\r\nasync function updateLocation() {\r\n    let defaultContent = `\r\n        <div class=\"location-container\">\r\n            <div class=\"header\">\r\n                <div class=\"title-item\">\r\n                    <img src=\"../src/img/Back Icon.png\" alt=\"Back\">\r\n                    <span>Select City</span>\r\n                </div>\r\n\r\n                <div class=\"addbtn\">\r\n                    <img src=\"../src/img/Add Location.png\" alt=\"Add Button\" class=\"add-btn\">\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"location-content\">\r\n       \r\n            </div>\r\n        </div>\r\n    `\r\n\r\n    document.body.innerHTML = '';\r\n    document.body.innerHTML = defaultContent;\r\n\r\n    let locations = ['Sunyani', 'Kumasi', 'Accra'];\r\n\r\n    locations.forEach((location) => {\r\n        let forecastDataPromise = (0,_currentweather__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(location);\r\n\r\n        forecastDataPromise.then((resolvedData) => {\r\n            createLocationItem(resolvedData);\r\n        })\r\n    })\r\n}\r\n\r\nfunction createLocationItem(resolvedData) {\r\n    const locationItem = document.createElement('div');\r\n    const locInfo = document.createElement('div');\r\n    const weatherItem = document.createElement('div');\r\n\r\n    locationItem.classList.add('location-item');\r\n    locInfo.classList.add('loc-info');\r\n    weatherItem.classList.add('weather-item');\r\n\r\n    const citySpan = document.createElement('span');\r\n    const tempSpan = document.createElement('span');\r\n    const conditionSpan = document.createElement('span');\r\n\r\n    citySpan.classList.add('city');\r\n    tempSpan.classList.add('temp');\r\n    conditionSpan.classList.add('condition');\r\n\r\n    citySpan.textContent = `${resolvedData.location.name}`;\r\n    tempSpan.textContent = `${Math.round(resolvedData.current.temp_c)}°C`;\r\n    conditionSpan.textContent = `${resolvedData.current.condition.text}`;\r\n\r\n    const weatherIcon = document.createElement('img');\r\n\r\n    weatherIcon.classList.add('weather-icon');\r\n    weatherIcon.src = `${resolvedData.current.condition.icon}`;\r\n\r\n    locInfo.appendChild(citySpan);\r\n    locInfo.appendChild(tempSpan);\r\n    locInfo.appendChild(conditionSpan);\r\n\r\n    weatherItem.appendChild(weatherIcon);\r\n\r\n    locationItem.appendChild(locInfo);\r\n    locationItem.appendChild(weatherItem);\r\n\r\n    let locationContent = document.querySelector('.location-content');\r\n\r\n    locationContent.appendChild(locationItem);\r\n}\r\n\r\nfunction handleClicks() {\r\n    const title = document.querySelector('.title-item');\r\n    const addBtn = document.querySelector('.addbtn');\r\n\r\n    \r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateLocation);\n\n//# sourceURL=webpack://mono-weather-app/./src/location.js?");
 
 /***/ }),
 

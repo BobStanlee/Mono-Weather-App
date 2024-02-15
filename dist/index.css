@@ -397,6 +397,10 @@ body {
     color: var(--translucent);
 }
 
+.location-container .header .addbtn {
+    cursor: pointer;
+}
+
 .location-container .header .addbtn img {
     width: 60px;
 }
