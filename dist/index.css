@@ -515,3 +515,87 @@ body {
 .get-city-container .city-input-item button {
     animation: translateYAndFadeIn 2s ease-in-out;
 }
+
+/* Settings screen */
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.settings-container .header {
+    margin-bottom: 8%;
+}
+
+.settings-container .header .backbtn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.settings-container .header .backbtn img {
+    width: 60px;
+}
+
+.settings-container .header .backbtn span {
+    font-size: var(--medium-small-font);
+    color: var(--translucent);
+}
+
+.settings-container .theme,
+.settings-container .about {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8%;
+}
+
+.settings-container .theme h1,
+.settings-container .about h1{
+    font-size: var(--medium-font);
+    margin-bottom: 20px;
+}
+
+.settings-container .theme .dark-container, 
+.settings-container .theme .light-container,
+.settings-container .about .about-container,
+.settings-container .about .team-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.settings-container .theme .dark-container .dark-item, 
+.settings-container .theme .light-container .light-item,
+.settings-container .about .about-container .about-item,
+.settings-container .about .team-container .team-item{
+    display: flex;
+    flex-direction: column;
+    font-size: var(--medium-small-font);
+    color: var(--translucent);
+}
+
+.settings-container .theme .dark-container .dark-item .des, 
+.settings-container .theme .light-container .light-item .des,
+.settings-container .about .about-container .about-item .des,
+.settings-container .about .team-container .team-item .des{
+    font-size: var(--small-font);
+}
+
+.settings-container .theme .dark-container img, 
+.settings-container .theme .light-container img {
+    width: 60px;
+}
+
+.settings-container .theme .dark-container img, 
+.settings-container .theme .light-container img {
+    display: none;
+}
+
+.settings-container .theme .dark-container img.show, 
+.settings-container .theme .light-container img.show {
+    display: flex;
+}
+
