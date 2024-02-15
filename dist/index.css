@@ -20,6 +20,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .splash-container {
@@ -455,11 +456,20 @@ body {
 
 /* Add Model */
 .get-city-container {
+    z-index: 10;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     /* align-items: center; */
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.show-modal {
+    display: flex;
 }
 
 .get-city-container .city-input-item {
@@ -498,4 +508,10 @@ body {
 
 .get-city-container .city-input-item button img {
     width: 40px;
+}
+
+.get-city-container .city-input-item label,
+.get-city-container .city-input-item input,
+.get-city-container .city-input-item button {
+    animation: translateYAndFadeIn 2s ease-in-out;
 }

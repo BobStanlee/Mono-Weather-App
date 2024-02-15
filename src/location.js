@@ -1,6 +1,8 @@
 import getCurrentWeatherData from "./currentweather";
 import updateHomeContent from "./home";
 
+let locations = ['Sunyani', 'Kumasi', 'Accra'];
+
 async function updateLocation() {
     let defaultContent = `
         <div class="location-container">
@@ -19,14 +21,23 @@ async function updateLocation() {
        
             </div>
         </div>
+
+        <div class="get-city-container">
+            <div class="city-input-item">
+                <label for="city">Enter Your Preferred City Here:</label>
+                <input type="text" name="city" class="city" id="city" required>
+                <button type="submit" class="search-item">
+                <img src="../src/img/Locations.png" alt="">
+                <span>Add City</span>
+                </button>
+            </div>
+        </div>
     `
 
     document.body.innerHTML = '';
     document.body.innerHTML = defaultContent;
 
     let locationContent = document.querySelector('.location-content');
-
-    let locations = ['Sunyani', 'Kumasi', 'Accra'];
 
     let allLocItems = [];
 
@@ -84,13 +95,44 @@ function handleClicks() {
     const backBtn = document.querySelector('.title-item');
     const addBtn = document.querySelector('.addbtn');
 
-    console.log(locItems);
-
     locItems.forEach((item) => {
         item.addEventListener('click', ()=> {
             const name = item.querySelector('.city').textContent;
 
             updateHomeContent(name);
+        })
+    })
+
+    backBtn.addEventListener('click', ()=> {
+        updateHomeContent();
+    })
+
+    addBtn.addEventListener('click', ()=> {
+        const modal = document.querySelector('.get-city-container');
+        const input = document.querySelector('.get-city-container .city-input-item input');
+        const addCityBtn = document.querySelector('.get-city-container .city-input-item button'); 
+        
+        modal.classList.add('show-modal');
+
+        modal.addEventListener('keydown', (e)=> {
+            if (e.keyCode == 13 && input.value.length > 1) {
+                modal.classList.remove('show-modal');
+                let cityName = input.value;
+
+                locations.push(cityName);
+                updateLocation();
+            }
+        })
+
+        addCityBtn.addEventListener('click', () => {
+            if (input.value.length > 1) {
+                modal.classList.remove('show-modal')
+                modal.classList.remove('show-modal');
+                let cityName = input.value;
+
+                locations.push(cityName);
+                updateLocation();
+            }
         })
     })
 }

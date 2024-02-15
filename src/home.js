@@ -1,5 +1,6 @@
 import getForecastWeatherData from "./forecastweather";
 import switchtabs from "./switchtab";
+import updateLocation from "./location";
 
 async function updateHomeContent(city='sunyani') {
     let resolvedDatas = getForecastWeatherData(city);
@@ -17,11 +18,11 @@ async function updateHomeContent(city='sunyani') {
           </div>
   
           <div class="set-item">
-            <a href="#" id="location-icon">
+            <a href="#" class="location-icon">
               <img src="../src/img/Locations.png" alt="Location Icon">
             </a>
   
-            <a href="#" id="settings-icon">
+            <a href="#" class="settings-icon">
               <img src="../src/img/settings.png" alt="Settings Icon">
             </a>
           </div>
@@ -80,6 +81,7 @@ async function updateHomeContent(city='sunyani') {
         }
 
         switchtabs();
+        handleHomeClicks();
     })
 }
 
@@ -100,6 +102,15 @@ function formatLastUpdated(lastUpdatedString) {
   const formattedDate = `${dayOfWeek}, ${date} ${month} ${year}`;
   
   return formattedDate;
+}
+
+function handleHomeClicks() {
+  const locationBtn = document.querySelector('.location-icon');
+  const settingBtn = document.querySelector('.settings-icon');
+
+  locationBtn.addEventListener('click', ()=> {
+    updateLocation();
+  })
 }
 
 export default updateHomeContent;

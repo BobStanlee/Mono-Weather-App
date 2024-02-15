@@ -1,7 +1,7 @@
 const apiKey = 'f89648074bac4104939211917240602';
 const forecastApiUrl = 'https://api.weatherapi.com/v1/forecast.json?';
 
-async function getForecastWeatherData(city) {
+async function getForecastWeatherData(city='sunyani') {
     try {
       const responds = await fetch(
         `${forecastApiUrl}` + `key=${apiKey}` + `&q=${city}`
