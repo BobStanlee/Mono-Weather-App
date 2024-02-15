@@ -1,8 +1,8 @@
 import getForecastWeatherData from "./forecastweather";
 import switchtabs from "./switchtab";
 
-async function updateHomeContent() {
-    let resolvedDatas = getForecastWeatherData();
+async function updateHomeContent(city='sunyani') {
+    let resolvedDatas = getForecastWeatherData(city);
 
     resolvedDatas.then((resolvedData) => {
 

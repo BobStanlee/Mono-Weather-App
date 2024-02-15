@@ -418,6 +418,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.location-container .location-content .location-item:hover {
+    border-bottom: 2px solid var(--black);
 }
 
 .location-container .location-content .location-item .loc-info {
@@ -441,3 +446,4 @@ body {
     font-weight: 400;
     color: var(--translucent);
 }
+

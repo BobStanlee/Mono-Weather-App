@@ -1,7 +1,7 @@
 const apiKey = 'f89648074bac4104939211917240602';
 const currentApiURL = 'http://api.weatherapi.com/v1/current.json?';
 
-async function getCurrentWeatherData(city = 'sunyani') {
+async function getCurrentWeatherData(city) {
     try {
       const responds = await fetch(
         `${currentApiURL}` + `key=${apiKey}` + `&q=${city}`

@@ -1,5 +1,5 @@
 import getCurrentWeatherData from "./currentweather";
-import getForecastWeatherData from "./forecastweather";
+import updateHomeContent from "./home";
 
 async function updateLocation() {
     let defaultContent = `
@@ -24,15 +24,21 @@ async function updateLocation() {
     document.body.innerHTML = '';
     document.body.innerHTML = defaultContent;
 
+    let locationContent = document.querySelector('.location-content');
+
     let locations = ['Sunyani', 'Kumasi', 'Accra'];
 
-    locations.forEach((location) => {
-        let forecastDataPromise = getCurrentWeatherData(location);
+    let allLocItems = [];
 
-        forecastDataPromise.then((resolvedData) => {
-            createLocationItem(resolvedData);
-        })
-    })
+    // Use Promise.all to wait for all promises to resolve
+    await Promise.all(locations.map(async (location) => {
+        let resolvedData = await getCurrentWeatherData(location);
+        let node = createLocationItem(resolvedData);
+        locationContent.appendChild(node);
+        allLocItems.push(node);
+    }));
+
+    handleClicks();
 }
 
 function createLocationItem(resolvedData) {
@@ -70,16 +76,23 @@ function createLocationItem(resolvedData) {
     locationItem.appendChild(locInfo);
     locationItem.appendChild(weatherItem);
 
-    let locationContent = document.querySelector('.location-content');
-
-    locationContent.appendChild(locationItem);
+    return locationItem;
 }
 
 function handleClicks() {
-    const title = document.querySelector('.title-item');
+    const locItems = document.querySelectorAll('.location-item');
+    const backBtn = document.querySelector('.title-item');
     const addBtn = document.querySelector('.addbtn');
 
-    
+    console.log(locItems);
+
+    locItems.forEach((item) => {
+        item.addEventListener('click', ()=> {
+            const name = item.querySelector('.city').textContent;
+
+            updateHomeContent(name);
+        })
+    })
 }
 
 export default updateLocation;
