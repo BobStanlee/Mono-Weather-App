@@ -9,5 +9,3 @@ import updateLocation from "./location";
 // setTimeout(() => {
 //     updateHomeContent();
 // }, 5200);
-
-updateLocation();
