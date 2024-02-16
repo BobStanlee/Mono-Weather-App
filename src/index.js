@@ -1,6 +1,5 @@
 import splashContent from "./splash";
 import updateHomeContent from "./home";
-import updateSettings from "./settings";
 
 // Run the function on page load
 window.addEventListener('load', splashContent);
