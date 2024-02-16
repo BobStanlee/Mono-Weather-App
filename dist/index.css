@@ -7,6 +7,12 @@
     --small-font: 34px;
 }
 
+body.dark-mode {
+    --White: #000;
+    --black: #FFF;
+    --translucent: #616161;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -599,3 +605,13 @@ body {
     display: flex;
 }
 
+.settings-container .theme h1,
+.settings-container .about h1,
+.settings-container .theme .dark-container .dark-item, 
+.settings-container .theme .light-container .light-item,
+.settings-container .about .about-container .about-item,
+.settings-container .about .team-container .team-item,
+.settings-container .theme .dark-container img, 
+.settings-container .theme .light-container img {
+    animation: translateYAndFadeIn 2s ease-in-out;
+}

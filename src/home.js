@@ -1,6 +1,7 @@
 import getForecastWeatherData from "./forecastweather";
 import switchtabs from "./switchtab";
 import updateLocation from "./location";
+import updateSettings from "./settings";
 
 async function updateHomeContent(city='sunyani') {
     let resolvedDatas = getForecastWeatherData(city);
@@ -110,6 +111,10 @@ function handleHomeClicks() {
 
   locationBtn.addEventListener('click', ()=> {
     updateLocation();
+  });
+
+  settingBtn.addEventListener('click', ()=> {
+    updateSettings();
   })
 }
 
